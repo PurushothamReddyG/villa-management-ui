@@ -1,0 +1,44 @@
+<!-- Header with user greeting and top-right buttons -->
+<div class="dashboard-header">
+  <div class="header-left">
+    <h2>Hi, {{ username }} 👋</h2>
+  </div>
+
+  <div class="header-right">
+    <button (click)="goHome()" class="btn home-btn">🏠 Home</button>
+    <button (click)="logout()" class="btn logout-btn">🚪 Logout</button>
+  </div>
+</div>
+
+<!-- Action buttons based on role -->
+<div class="dashboard-actions">
+  <button class="btn blue" routerLink="/villas">View Villas</button>
+  <button class="btn green" routerLink="/add-villa" *ngIf="role === 'ADMIN'">Add Villa</button>
+  <button class="btn orange" routerLink="/pay-maintenance">Pay Maintenance</button>
+  <button class="btn gray" routerLink="/notices">View Notices</button>
+  <button class="btn red" routerLink="/admin-panel" *ngIf="role === 'ADMIN'">Admin Panel</button>
+</div>
+
+<!-- Dashboard summary cards -->
+<div class="dashboard-cards">
+  <div class="card blue-border">
+    <h3>🏡 Villas Occupied</h3>
+    <p>{{ villasOccupied }}/{{ totalVillas }}</p>
+  </div>
+  <div class="card red-border">
+    <h3>⏳ Pending Payments</h3>
+    <p>₹{{ pendingPayments }}</p>
+  </div>
+  <div class="card green-border">
+    <h3>👨‍👩‍👧‍👦 Total Members</h3>
+    <p>{{ totalMembers }}</p>
+  </div>
+</div>
+
+<!-- Notices section -->
+<div class="dashboard-notices">
+  <h3>📢 Latest Notices</h3>
+  <ul>
+    <li *ngFor="let notice of latestNotices">📄 {{ notice }}</li>
+  </ul>
+</div>

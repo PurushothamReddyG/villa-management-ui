@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:rwa-management-ui": "node dist/rwa-management-ui/server/server.mjs"
+    "serve:ssr:rwa-management-ui": "node dist/rwa-management-ui/server/server.mjs",
+    "dev:ssr": "ng run villa-management-ui:serve-ssr",
+    "build:ssr": "ng build && ng run villa-management-ui:server",
+    "serve:ssr": "node dist/villa-management-ui/server/main.js"
   },
   "prettier": {
     "overrides": [
@@ -21,14 +24,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^20.0.0",
+    "@angular/animations": "^20.0.6",
+    "@angular/common": "^20.0.6",
     "@angular/compiler": "^20.0.0",
-    "@angular/core": "^20.0.0",
+    "@angular/core": "^20.0.6",
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
     "@angular/ssr": "^20.0.5",
+    "@auth0/angular-jwt": "^5.2.0",
+    "bootstrap": "^5.3.7",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

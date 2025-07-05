@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Add New Villa</h2>
+
+  <form (ngSubmit)="onSubmit()" #villaForm="ngForm">
+    <div class="form-group">
+      <label for="villaNumber">Villa No</label>
+      <input type="text" id="villaNumber" name="villaNumber" [(ngModel)]="villaNumber" required />
+    </div>
+
+    <div class="form-group">
+      <label for="roadNumber">Road No</label>
+      <input type="text" id="roadNumber" name="roadNumber" [(ngModel)]="roadNumber" required />
+    </div>
+
+    <div class="form-group">
+      <label for="ownerName">Owner Name</label>
+      <input type="text" id="ownerName" name="ownerName" [(ngModel)]="ownerName" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="ownerEmail" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" [(ngModel)]="contactNumber" required />
+    </div>
+
+    <div class="form-group">
+      <label for="occupied">Occupied?</label>
+      <select id="occupied" name="occupied" [(ngModel)]="isOccupied" required>
+        <option [ngValue]="true">Yes</option>
+        <option [ngValue]="false">No</option>
+      </select>
+    </div>
+
+    <button class="btn submit" type="submit">Add Villa</button>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="page-container">
+  <!-- Top Navigation Bar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="brand">🏡 Sri Sai County</div>
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Login Card -->
+  <section class="login-section">
+    <div class="login-card">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <h2> Welcome Back!</h2>
+      <p>Please log in to manage your villa</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input type="email" placeholder="Email" formControlName="email" required />
+        <input type="password" placeholder="Password" formControlName="password" required />
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Sri Sai County. All rights reserved.
+  </footer>
+</div>
