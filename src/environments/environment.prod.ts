@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://resident-welfare-association.onrender.com/'
+  apiBaseUrl: 'https://resident-welfare-association.onrender.com'
 };
