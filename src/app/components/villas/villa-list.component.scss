@@ -1,69 +1,167 @@
-.container {
-  padding: 20px;
-  background-color: #f3f3f3;
+:host {
+  display: block;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
   min-height: 100vh;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
+/* 🔹 Navbar */
+.navbar {
+  background-color: #002f6c;
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+
+      li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s ease;
+
+        &.active,
+        &:hover {
+          text-decoration: underline;
+          color: #ffc107;
+        }
+      }
+    }
+  }
 }
 
-.search-bar {
+/* 🔸 Main Container */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔍 Search */
+.search-container {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 
   input {
-    width: 300px;
-    padding: 6px 10px;
-    margin-right: 10px;
-    border-radius: 4px;
+    flex: 1;
+    padding: 0.6rem 1rem;
     border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
   }
 
-  .btn {
-    padding: 6px 12px;
-    margin-right: 5px;
+  .search-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 4px;
-    font-weight: 500;
+    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-
-    &.gray {
-      background-color: #6c757d;
-      color: #fff;
-    }
-
-    &.red {
-      background-color: #dc3545;
-      color: #fff;
-    }
-
-    &.green {
-      background-color: #28a745;
-      color: #fff;
-    }
+    transition: background-color 0.3s ease;
 
     &:hover {
-      opacity: 0.9;
+      background-color: #0056b3;
     }
   }
 }
 
+/* 📋 Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
-
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
+  background-color: white;
 
   thead {
     background-color: #333;
     color: white;
+
+    th {
+      padding: 0.75rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 15px;
+    }
   }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #f7f9fb;
+      }
+
+      td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+}
+
+/* 🎯 Action Buttons */
+.btn {
+  padding: 0.4rem 0.9rem;
+  margin-right: 0.4rem;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &.gray {
+    background-color: #6c757d;
+
+    &:hover {
+      background-color: #5a6268;
+    }
+  }
+
+  &.red {
+    background-color: #dc3545;
+
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+
+  &.green {
+    background-color: #28a745;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+}
+
+/* 🔻 Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #003366;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 3px solid #0055aa;
 }

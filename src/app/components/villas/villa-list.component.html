@@ -1,5 +1,17 @@
+<!-- 🔹 Header Navigation -->
+<header class="nav-header">
+  <div class="nav-left">
+    <h1>Sri Sai County</h1>
+  </div>
+  <div class="nav-right">
+    <button routerLink="/dashboard" class="btn btn-secondary">🏠 Dashboard</button>
+    <button routerLink="/login" class="btn btn-danger">🚪 Logout</button>
+  </div>
+</header>
+
+<!-- 🔸 Villa Management Table -->
 <div class="container">
-  <h2>Sri Sai County – Villa Management</h2>
+  <h2>Villa Management</h2>
 
   <div class="search-container">
     <input type="text" [(ngModel)]="searchQuery" placeholder="Search by Villa No, Owner or Email" />
@@ -20,7 +32,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let villa of filteredVillas">
-       <td>{{ villa.villaNumber }}</td>
+        <td>{{ villa.villaNumber }}</td>
         <td>{{ villa.roadNumber }}</td>
         <td>{{ villa.ownerName }}</td>
         <td>{{ villa.ownerEmail }}</td>
@@ -34,4 +46,9 @@
       </tr>
     </tbody>
   </table>
+
+ <!-- Footer -->
+  <footer class="footer">
+    © 2025 Sri Sai County. All rights reserved.
+  </footer>
 </div>

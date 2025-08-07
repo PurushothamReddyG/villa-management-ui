@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "index": "src/index.html",
+            "baseHref": "/",
+
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -94,7 +97,8 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "scripts": []
           }
         }
       }

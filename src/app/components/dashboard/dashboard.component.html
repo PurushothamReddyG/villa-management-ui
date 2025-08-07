@@ -1,44 +1,50 @@
-<!-- Header with user greeting and top-right buttons -->
-<div class="dashboard-header">
+<!-- 🔹 Header with greeting and actions -->
+<header class="dashboard-header">
   <div class="header-left">
     <h2>Hi, {{ username }} 👋</h2>
   </div>
 
   <div class="header-right">
-    <button (click)="goHome()" class="btn home-btn">🏠 Home</button>
-    <button (click)="logout()" class="btn logout-btn">🚪 Logout</button>
+    <button (click)="goHome()" class="btn btn-secondary" aria-label="Go to Home">🏠 Home</button>
+    <button (click)="logout()" class="btn btn-danger" aria-label="Logout">🚪 Logout</button>
   </div>
-</div>
+</header>
 
-<!-- Action buttons based on role -->
-<div class="dashboard-actions">
-  <button class="btn blue" routerLink="/villas">View Villas</button>
-  <button class="btn green" routerLink="/add-villa" *ngIf="role === 'ADMIN'">Add Villa</button>
-  <button class="btn orange" routerLink="/pay-maintenance">Pay Maintenance</button>
-  <button class="btn gray" routerLink="/notices">View Notices</button>
-  <button class="btn red" routerLink="/admin-panel" *ngIf="role === 'ADMIN'">Admin Panel</button>
-</div>
+<!-- 🔸 Action Buttons -->
+<section class="dashboard-actions">
+  <button class="btn btn-primary" routerLink="/profile">👤 View Profile</button>
+  <button class="btn btn-primary" routerLink="/villas">🔍 View Villas</button>
+  <button class="btn btn-success" routerLink="/add-villa" *ngIf="role === 'ADMIN'">➕ Add Villa</button>
+  <button class="btn btn-warning" routerLink="/pay-maintenance">💳 Pay Maintenance</button>
+  <button class="btn btn-info" routerLink="/notices">📋 View Notices</button>
+  <button class="btn btn-dark" routerLink="/admin-panel" *ngIf="role === 'ADMIN'">🛠️ Admin Panel</button>
+</section>
 
-<!-- Dashboard summary cards -->
-<div class="dashboard-cards">
-  <div class="card blue-border">
+<!-- 📊 Dashboard Summary Cards -->
+<section class="dashboard-cards">
+  <div class="card card-blue">
     <h3>🏡 Villas Occupied</h3>
-    <p>{{ villasOccupied }}/{{ totalVillas }}</p>
+    <p>{{ villasOccupied }} / {{ totalVillas }}</p>
   </div>
-  <div class="card red-border">
+  <div class="card card-red">
     <h3>⏳ Pending Payments</h3>
     <p>₹{{ pendingPayments }}</p>
   </div>
-  <div class="card green-border">
+  <div class="card card-green">
     <h3>👨‍👩‍👧‍👦 Total Members</h3>
     <p>{{ totalMembers }}</p>
   </div>
-</div>
+</section>
 
-<!-- Notices section -->
-<div class="dashboard-notices">
+<!-- 📢 Notices Section -->
+<section class="dashboard-notices">
   <h3>📢 Latest Notices</h3>
   <ul>
     <li *ngFor="let notice of latestNotices">📄 {{ notice }}</li>
   </ul>
-</div>
+</section>
+
+<!-- 🔻 Footer -->
+<footer class="dashboard-footer">
+  <p>© 2025 Sri Sai County. All rights reserved.</p>
+</footer>

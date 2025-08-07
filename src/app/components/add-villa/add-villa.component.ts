@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { VillaService, Villa } from '../../services/villa.service';
+import { VillaService } from '../../services/villa.service';
+import { Villa } from '../../models/villa.model'; // ✅ correct place
+
 
 @Component({
   selector: 'app-add-villa',

@@ -1,54 +1,73 @@
 import { Component, OnInit } from '@angular/core';
+import { VillaService } from '../../services/villa.service';
+import { Villa } from '../../models/villa.model';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { UserService, User } from '../../services/user.service'; // Adjust path as needed
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
-  standalone: true,
   selector: 'app-dashboard',
+  standalone: true,
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  imports: [CommonModule]
+  styleUrls: ['./dashboard.component.scss'],
+  imports: [CommonModule, RouterModule]
 })
 export class DashboardComponent implements OnInit {
-  username: string = 'User';
-  role: string = 'USER';
-  villasOccupied = 24;
-  totalVillas = 30;
-  pendingPayments = 12000;
-  totalMembers = 76;
+  username = '';
+  role = '';
+  villas: Villa[] = [];
+  totalVillas = 0;
+  villasOccupied = 0;
+  pendingPayments = 0;
+  totalMembers = 0;
+  latestNotices: string[] = [];
 
-  latestNotices: string[] = [
-    "Water shutdown on Friday",
-    "Lift maintenance update",
-    "RWA meeting on Sunday"
-  ];
-
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private villaService: VillaService) {}
 
   ngOnInit(): void {
-    this.fetchUserDetails();
+    this.setUsernameFromToken(); // get from localStorage/JWT
+    this.fetchVillaStats();
+    this.fetchNotices(); // optional
   }
+  
 
-  fetchUserDetails(): void {
-    this.userService.getCurrentUser().subscribe({
-      next: (user: User) => {
-        this.username = user.name || user.email;
-        this.role = user.role;
+
+  fetchVillaStats(): void {
+    this.villaService.getAllVillas().subscribe({
+      next: (villas: Villa[]) => {
+        this.villas = villas;
+        this.totalVillas = villas.length;
+        this.villasOccupied = villas.filter(v => v.isOccupied).length;
+        // You can update these once your backend provides data
+        this.pendingPayments = 5000; // static/dummy
+        this.totalMembers = villas.length; // or get from user API
       },
       error: (err) => {
-        console.error('Error fetching user details:', err);
-        this.logout();
+        console.error('Error fetching villa stats:', err);
       }
     });
   }
 
+  fetchNotices(): void {
+    // optional stub for future API
+    this.latestNotices = ['Society meeting on 10th July', 'Maintenance due by 15th July'];
+  }
+
   goHome(): void {
-    this.router.navigate(['/home']);
+    window.location.href = '/home';
   }
 
   logout(): void {
-    localStorage.removeItem('token'); // Clear JWT
-    this.router.navigate(['/login']);
+    localStorage.clear();
+    window.location.href = '/login';
+  }
+
+  setUsernameFromToken(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      this.username = payload.sub || 'User';
+      this.role = payload.role || 'VILLA_OWNER';
+    }
   }
 }

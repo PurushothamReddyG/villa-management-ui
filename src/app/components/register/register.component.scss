@@ -1,0 +1,165 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f3f6fa;
+}
+
+.navbar {
+  background-color: #002b5c;
+  color: white;
+  padding: 1rem 2rem;
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.register-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.register-card {
+  background-color: white;
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+
+  .logo {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    color: #002b5c;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    label {
+      text-align: left;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .role-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+
+      button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #002b5c;
+        background-color: white;
+        color: #002b5c;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.selected {
+          background-color: #002b5c;
+          color: white;
+        }
+      }
+    }
+
+    button[type='submit'] {
+      background-color: #002b5c;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .secondary-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 0.75rem;
+  }
+}
+
+.footer {
+  background-color: #002b5c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+

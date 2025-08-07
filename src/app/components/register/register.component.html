@@ -1,0 +1,57 @@
+<div class="page-container">
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="brand">🏡 Sri Sai County</div>
+      <ul class="nav-links">
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Register Section -->
+  <section class="register-section">
+    <div class="register-card">
+      <h2>Create Your Account</h2>
+      <p>Please fill in the details to register</p>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Full Name" formControlName="name" />
+
+        <input type="email" placeholder="Email" formControlName="email" />
+
+        <input type="password" placeholder="Password" formControlName="password" />
+
+        <label>Select Roles</label>
+        <div class="role-toggle">
+          <button
+            type="button"
+            *ngFor="let role of roles"
+            (click)="toggleRole(role)"
+            [class.selected]="registerForm.value.roles.includes(role)">
+            {{ role }}
+          </button>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+        <div class="error-message" *ngIf="registrationError">
+          {{ registrationError }}
+        </div>
+        <div class="success-message" *ngIf="registrationSuccess">
+            ✅ Your account has been created. Please login.
+        </div>
+      </form>
+
+      <button class="secondary-btn" routerLink="/login">
+        Already have an account? Log in
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 Sri Sai County. All rights reserved.
+  </footer>
+</div>
