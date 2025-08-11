@@ -5,6 +5,7 @@
       <div class="brand">🏡 Sri Sai County</div>
       <ul class="nav-links">
         <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/register" routerLinkActive="active">Register</a></li>
       </ul>
     </div>
   </nav>
@@ -15,17 +16,30 @@
       <h2>Welcome Back!</h2>
       <p>Please log in to manage your villa</p>
 
-      <!-- ✅ PLACE THE FORM HERE -->
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="email" placeholder="Email" formControlName="email" required />
-        <input type="password" placeholder="Password" formControlName="password" required />
-        <button type="submit">Login</button>
-
-        <button (click)="goToRegister()" class="register-btn">
+        <input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          required
+          autocomplete="email"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+          autocomplete="current-password"
+        />
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        <button
+          type="button"
+          class="register-btn"
+          (click)="goToRegister()"
+        >
           Don’t have an account? Register
         </button>
       </form>
-
     </div>
   </section>
 

@@ -8,7 +8,7 @@
 .navbar {
   background-color: #002b5c;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
 
   .navbar-container {
     display: flex;
@@ -17,14 +17,14 @@
   }
 
   .brand {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
   }
 
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0;
     margin: 0;
 
@@ -32,6 +32,7 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.9rem;
 
       &.active {
         text-decoration: underline;
@@ -45,32 +46,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .register-card {
   background-color: white;
-  padding: 2.5rem 2rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  max-width: 420px;
+  padding: 1.5rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  max-width: 400px;
   width: 100%;
   text-align: center;
 
-  .logo {
-    height: 50px;
-    margin-bottom: 1rem;
-  }
-
   h2 {
-    margin-top: 0.5rem;
-    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
     color: #002b5c;
   }
 
   p {
     color: #555;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
   }
 
   form {
@@ -79,34 +77,41 @@
 
     input {
       width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 1rem;
+      font-size: 0.9rem;
+
+      &:focus {
+        border-color: #002b5c;
+        outline: none;
+      }
     }
 
     label {
       text-align: left;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       font-weight: 600;
       color: #333;
+      font-size: 0.9rem;
     }
 
     .role-toggle {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       justify-content: center;
 
       button {
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         border: 1px solid #002b5c;
         background-color: white;
         color: #002b5c;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 0.85rem;
 
         &.selected {
           background-color: #002b5c;
@@ -118,12 +123,13 @@
     button[type='submit'] {
       background-color: #002b5c;
       color: white;
-      padding: 0.75rem;
+      padding: 0.6rem;
       border: none;
       border-radius: 6px;
       font-weight: bold;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       cursor: pointer;
+      font-size: 1rem;
 
       &:disabled {
         background-color: #cccccc;
@@ -132,15 +138,15 @@
     }
 
     .error-message {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+      color: #d9534f;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
     }
 
     .success-message {
-      color: green;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+      color: #28a745;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
     }
   }
 
@@ -148,10 +154,10 @@
     background: none;
     border: none;
     color: #007bff;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     cursor: pointer;
     text-decoration: underline;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -159,7 +165,6 @@
   background-color: #002b5c;
   color: white;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.875rem;
+  padding: 0.75rem;
+  font-size: 0.85rem;
 }
-

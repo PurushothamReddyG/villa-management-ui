@@ -1,29 +1,50 @@
 <div class="page-container">
-  <!-- Top Navigation Bar -->
+  <!-- ✅ Header -->
   <nav class="navbar">
-    <div class="navbar-container">
-      <div class="brand">🏡 Sri Sai County</div>
-      <ul class="nav-links">
-        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="navbar-container">
+    <div class="brand">🏡 Sri Sai County</div>
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- Register Section -->
+
+  <!-- ✅ Register Form Section -->
   <section class="register-section">
     <div class="register-card">
-      <h2>Create Your Account</h2>
-      <p>Please fill in the details to register</p>
+      <h2>Create an Account</h2>
+      <p>Register to manage your villa</p>
 
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <input type="text" placeholder="Full Name" formControlName="name" />
+        <input type="text" placeholder="Full Name" formControlName="userName" />
+        <div class="error-message" *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+          Name is required.
+        </div>
 
         <input type="email" placeholder="Email" formControlName="email" />
+        <div class="error-message" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          Please enter a valid email.
+        </div>
+
+        <input type="text" placeholder="Mobile Number" formControlName="mobileNumber" maxlength="10" />
+        <div class="error-message" *ngIf="registerForm.get('mobileNumber')?.invalid && registerForm.get('mobileNumber')?.touched">
+          Please enter a valid 10-digit mobile number.
+        </div>
 
         <input type="password" placeholder="Password" formControlName="password" />
+        <div class="error-message" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          Password is required.
+        </div>
 
-        <label>Select Roles</label>
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+        <div class="error-message" *ngIf="(registerForm.hasError('mismatch') && registerForm.get('confirmPassword')?.touched)">
+          Passwords do not match.
+        </div>
+
+        <label><strong>Select Roles</strong></label>
         <div class="role-toggle">
           <button
             type="button"
@@ -36,21 +57,21 @@
 
         <button type="submit" [disabled]="registerForm.invalid">Register</button>
 
+        <button class="secondary-btn" routerLink="/login">
+        Already have an account? Log in
+      </button>
+
         <div class="error-message" *ngIf="registrationError">
           {{ registrationError }}
         </div>
         <div class="success-message" *ngIf="registrationSuccess">
-            ✅ Your account has been created. Please login.
+          ✅ {{ successMessage }}
         </div>
       </form>
-
-      <button class="secondary-btn" routerLink="/login">
-        Already have an account? Log in
-      </button>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ✅ Footer -->
   <footer class="footer">
     © 2025 Sri Sai County. All rights reserved.
   </footer>
